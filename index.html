@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta author="Amod shankar />
+    <meta email="amods@outlook.com" />
+    <title>Theatre seat booking</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body ng-app="theatre" ng-controller="baseController">
+    <div>
+        <h3><center>MOVIE SEAT RESERVATION</center></h3>
+        <form name="userform" style="text-align:center;">
+            <span>
+                <label for="username">Name:</label><input type="text" class="inputname" id="username" name="username" ng-model="userName" required />
+                <label for="numberseats">Number of Seats:</label><input type="number" class="inputseats" id="numberseats" name="numberseats" ng-model="noOfSeats" required /><br />
+                <button class="btnstartselect" title="Start selecting" ng-click="startSelecting()" type="submit">Start selecting</button>
+            </span>            
+        </form>
+    </div>
+    <div class="selectioncontainer">
+        <div class="screencontainer">
+             SCREEN
+        </div>
+        <div class="seatarraycontainer">            
+            <table class="seatgrid">
+                <tr>
+                    <th></th><th>1</th><th>2</th><th>3</th><th>4</th>
+                    <th class="col5">5</th>
+                    <th>6</th><th>7</th><th>8</th><th>9</th><th>10</th><th>11</th><th>12</th>
+                </tr>
+                <tr ng-repeat="row in gridDataObj">
+                    <td>{{rowChars[$index]}}</td>
+                    <td><span ng-class="{full:row[$index][0].full, empty: !row[$index][0].checked, blocked: row[$index][0].checked && !row[$index][0].full}" ng-click="checkThis($index, 0)"></span></td>
+                    <td><span ng-class="{full:row[$index][1].full, empty: !row[$index][1].checked, blocked: row[$index][1].checked && !row[$index][1].full}" ng-click="checkThis($index, 1)"></span></td>
+                    <td><span ng-class="{full:row[$index][2].full, empty: !row[$index][2].checked, blocked: row[$index][2].checked && !row[$index][2].full}" ng-click="checkThis($index, 2)"></span></td>
+                    <td><span ng-class="{full:row[$index][3].full, empty: !row[$index][3].checked, blocked: row[$index][3].checked && !row[$index][3].full}" ng-click="checkThis($index, 3)"></span></td>
+                    <td><span ng-class="{full:row[$index][4].full, empty: !row[$index][4].checked, blocked: row[$index][4].checked && !row[$index][4].full}" ng-click="checkThis($index, 4)"></span></td>
+                    <td class="col5"><span ng-class="{full:row[$index][5].full, empty: !row[$index][5].checked, blocked: row[$index][5].checked && !row[$index][5].full}" ng-click="checkThis($index, 5)"></span></td>
+                    <td><span ng-class="{full:row[$index][6].full, empty: !row[$index][6].checked, blocked: row[$index][6].checked && !row[$index][6].full}" ng-click="checkThis($index, 6)"></span></td>
+                    <td><span ng-class="{full:row[$index][7].full, empty: !row[$index][7].checked, blocked: row[$index][7].checked && !row[$index][7].full}" ng-click="checkThis($index, 7)"></span></td>
+                    <td><span ng-class="{full:row[$index][8].full, empty: !row[$index][8].checked, blocked: row[$index][8].checked && !row[$index][8].full}" ng-click="checkThis($index, 8)"></span></td>
+                    <td><span ng-class="{full:row[$index][9].full, empty: !row[$index][9].checked, blocked: row[$index][9].checked && !row[$index][9].full}" ng-click="checkThis($index, 9)"></span></td>
+                    <td><span ng-class="{full:row[$index][10].full, empty: !row[$index][10].checked, blocked: row[$index][10].checked && !row[$index][10].full}" ng-click="checkThis($index, 10)"></span></td>
+                    <td><span ng-class="{full:row[$index][11].full, empty: !row[$index][11].checked, blocked: row[$index][11].checked && !row[$index][11].full}" ng-click="checkThis($index, 11)"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div style="text-align:center;"><button class="btnstartselect" title="Confirm selection" ng-click="confirmSelection()" type="submit">Confirm selection</button></div>
+    </div>
+    <div style="margin-top:20px;">
+        <div style="width:70%; float:left; margin-left:5%;">
+            <table border="1" style="width:100%">
+                <tr>
+                    <th>Name</th>
+                    <th>No. of seats</th>
+                    <th>Seats</th>
+                </tr>
+                <tr ng-repeat="user in users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.seatsRequired}}</td>
+                    <td>{{user.bookedseats}}</td>
+                </tr>
+            </table>
+        </div>
+        <div style="float:right; text-align:left; margin-right:15%;">
+            <div><span class="blocked"></span><span>Selected seat</span></div><br />
+            <div><span class="full"></span><span> Reserved seat</span></div><br />
+            <div><span class="empty"></span><span> Empty seat</span></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>

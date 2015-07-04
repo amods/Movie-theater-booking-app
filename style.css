@@ -1,0 +1,70 @@
+﻿* {
+    box-sizing:border-box;
+}
+.inputname {
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:1px solid black; 
+    margin-right: 30px;
+}
+.inputseats {
+    width:40px;
+    border: 1px solid black;
+    margin-left:20px;
+}
+.btnstartselect {
+    margin-top:10px;
+    padding:10px;
+}
+.selectioncontainer {
+    padding-top: 20px;
+    width:90%;
+    margin:0 auto;
+}
+.screencontainer {
+    padding: 5px 0 5px 0;
+    border:2px solid black;
+    text-align: center;
+    background: skyblue;            
+
+}
+.seatgrid {
+    width: 100%;
+}
+tr {
+    text-align:center;
+}
+.col5 {
+    margin-right: 20px;
+}
+       
+span.empty{
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;
+    border: 2px solid blue;
+    cursor:pointer;
+}
+span.full {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;            
+    cursor:pointer;
+    border: 2px solid blue;
+    background: red;
+}
+span.blocked {
+    display:inline-block;
+    width:19px;
+    height:19px;
+    margin:-1px 4px 0 0;
+    vertical-align:middle;            
+    cursor:pointer;
+    border: 2px solid blue;
+    background: green;
+}
